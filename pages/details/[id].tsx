@@ -11,7 +11,7 @@ import CircularProgress from '@mui/material/CircularProgress';
 
 const Details: NextPage = () => {
     const router = useRouter();
-    const assetsToSupplyData = {
+    const assetsToSupplyData: any = {
         1: { asset: 'FRAX', reserveValue: 42.54, utilizationRate: 82, oraclePrice: 1.00, },
         2: { asset: 'DAI', reserveValue: 58.54, utilizationRate: 89, oraclePrice: 2.00, },
         3: { asset: 'BIT', reserveValue: 89.54, utilizationRate: 42, oraclePrice: 1.00, },
@@ -30,10 +30,10 @@ const Details: NextPage = () => {
                     <div className="container h-screen relative z-20 pt-5">
                         <div className="h-full flex flex-col mt-10 lg:pb-0 pt-5">
                             <div className="flex flex-row w-5/12 text-start text-white white border-white justify-around">
-                                <div className='summary-section-item text-white justify-between flex items-center'><span> <div className='text-xs'> DAI  </div><div className='text-xl'> {assetsToSupplyData[router.query.id]?.asset} stable coin </div></span> <div className='summary-separator' /> </div>
-                                <div className='summary-section-item text-white justify-between flex items-center'><span> <div className='text-xs'> Reserve Size </div><div className='text-xl'> ${assetsToSupplyData[router.query.id]?.reserveValue}M </div></span> <div className='summary-separator' /> </div>
-                                <div className='summary-section-item text-white justify-between flex items-center'><span> <div className='text-xs'> Utilization Rate </div><div className='text-xl'> {assetsToSupplyData[router.query.id]?.utilizationRate}%  </div></span> <div className='summary-separator' /> </div>
-                                <div className='summary-section-item text-white justify-between flex items-center'><span> <div className='text-xs'> Oracle Price </div><div className='text-xl'> ${(assetsToSupplyData[router.query.id]?.oraclePrice)}  </div></span> </div>
+                                <div className='summary-section-item text-white justify-between flex items-center'><span> <div className='text-xs'> DAI  </div><div className='text-xl'> {assetsToSupplyData[router?.query?.id as keyof typeof assetsToSupplyData]?.asset} stable coin </div></span> <div className='summary-separator' /> </div>
+                                <div className='summary-section-item text-white justify-between flex items-center'><span> <div className='text-xs'> Reserve Size </div><div className='text-xl'> ${assetsToSupplyData[router?.query?.id as keyof typeof assetsToSupplyData]?.reserveValue}M </div></span> <div className='summary-separator' /> </div>
+                                <div className='summary-section-item text-white justify-between flex items-center'><span> <div className='text-xs'> Utilization Rate </div><div className='text-xl'> {assetsToSupplyData[router?.query?.id as keyof typeof assetsToSupplyData]?.utilizationRate}%  </div></span> <div className='summary-separator' /> </div>
+                                <div className='summary-section-item text-white justify-between flex items-center'><span> <div className='text-xs'> Oracle Price </div><div className='text-xl'> ${(assetsToSupplyData[router?.query?.id as keyof typeof assetsToSupplyData]?.oraclePrice)}  </div></span> </div>
                             </div>
                             <div className="h-full flex flex-row mt-10 lg:pb-0 pt-5">
                                 <div className="flex flex-col mb-10 mr-5 w-9/12 text-white bg-black-custom-100 border-white p-8">

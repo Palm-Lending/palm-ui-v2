@@ -34,7 +34,7 @@ const supplyDummyData = {
     token: "ETH",
     supplyAPY: "1.93%",
 };
-const YourSupply = ({ onSwitch, onWithdraw }) => {
+const YourSupply = ({ onSwitch, onWithdraw }: { onSwitch: any, onWithdraw: any }) => {
     return (
         <>
             <div className="rounded w-full lg:w-5/12 overflow-hidden shadow-lg bg-gray-custom p-3 mb-10 lg:mb-0">
@@ -92,7 +92,7 @@ const YourSupply = ({ onSwitch, onWithdraw }) => {
         </>
     );
 };
-const YourBorrow = ({ onRepay, onBorrow }) => {
+const YourBorrow = ({ onRepay, onBorrow }: { onRepay: any, onBorrow: any }) => {
     return (
         <>
             <div className="w-full lg:w-6/12 rounded overflow-hidden shadow-lg bg-gray-custom p-3  mb-10 lg:mb-0">
@@ -154,7 +154,7 @@ const YourBorrow = ({ onRepay, onBorrow }) => {
         </>
     );
 };
-const AssetsToSupply = ({ onSupply, onDetails }) => {
+const AssetsToSupply = ({ onSupply, onDetails }: { onSupply: any, onDetails: any }) => {
     return (
         <>
             <div className="rounded w-full lg:w-5/12 overflow-hidden shadow-lg bg-gray-custom p-3  mb-10 lg:mb-0">
@@ -222,7 +222,7 @@ const AssetsToSupply = ({ onSupply, onDetails }) => {
         </>
     );
 };
-const AssetsToBorrow = ({ onDetails }) => {
+const AssetsToBorrow = ({ onDetails }: { onDetails: any }) => {
     return (
         <>
             <div className="rounded w-full lg:w-6/12 overflow-hidden shadow-lg bg-gray-custom p-3  mb-10 lg:mb-0">
@@ -331,14 +331,14 @@ const Dashboard: NextPage = () => {
     const onBorrow = () => {
         setBorrowModalOpen(true);
     };
-    const handleOnSubmitBorrow = (data) => {
+    const handleOnSubmitBorrow = (data: any) => {
         handleOnClose();
         alert(data.supplyVal);
     };
     const onSupply = () => {
         setSupplyModalOpen(true);
     };
-    const handleOnSubmitSupply = (data) => {
+    const handleOnSubmitSupply = (data: any) => {
         handleOnClose();
         alert(data.supplyVal);
     };
@@ -412,9 +412,9 @@ const Dashboard: NextPage = () => {
                             <div className="flex flex-col lg:flex-row justify-around mb-10 text-start text-white white border-white">
                                 <AssetsToSupply
                                     onSupply={onSupply}
-                                    onDetails={(asset) => onDetails(asset)}
+                                    onDetails={(asset: any) => onDetails(asset)}
                                 />
-                                <AssetsToBorrow onDetails={(asset) => onDetails(asset)} />
+                                <AssetsToBorrow onDetails={(asset: any) => onDetails(asset)} />
                             </div>
                         </div>
                         <Modal
@@ -423,7 +423,7 @@ const Dashboard: NextPage = () => {
                             onClose={() => handleOnClose()}>
                             <BorrowModalContent
                                 data={borrowDummyData}
-                                onSubmit={(data) => handleOnSubmitBorrow(data)}
+                                onSubmit={(data: any) => handleOnSubmitBorrow(data)}
                             />
                         </Modal>
                         <Modal
@@ -432,7 +432,7 @@ const Dashboard: NextPage = () => {
                             onClose={() => handleOnClose()}>
                             <SupplyModalContent
                                 data={supplyDummyData}
-                                onSubmit={(data) => handleOnSubmitSupply(data)}
+                                onSubmit={(data: any) => handleOnSubmitSupply(data)}
                             />
                         </Modal>
                     </div>
