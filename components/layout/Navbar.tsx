@@ -141,7 +141,7 @@ export default function Navbar() {
       bg-opacity-50 ${isOpen ? "block" : "hidden"}`}>
         <div className="bg-black text-white	 flex flex-col text-center mx-5 my-20 py-4 rounded">
           {navItems.map((navItem) => (
-            <a key={navItem} className="py-2" href={navItem.href}>
+            <a key={navItem.title} className="py-2" href={navItem.href}>
               {navItem.title}
             </a>
           ))}
