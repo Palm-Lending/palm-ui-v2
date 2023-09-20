@@ -1,0 +1,208 @@
+body {
+  margin: 0;
+  font-family: "Maven Pro", sans-serif;
+  background-color: #000000;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.MuiDialog-paper {
+  color: white;
+  background-color: #444444;
+}
+
+.summary-section-item {
+  margin: 0 10px;
+}
+
+.summary-separator {
+  height: 60%;
+  background-color: gray;
+  opacity: 0.5;
+  width: 1px;
+  margin-left: 20px;
+}
+
+.MuiCircularProgress-root.circular-progress-fill-value {
+  color: #a67b32;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+
+.MuiCircularProgress-root.circular-progress-rest-value {
+  color: #444;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.chart-container {
+  width: 100%;
+  height: 400px;
+}
+
+:root {
+  /* light mode */
+  --background-color: #0f0f0f;
+  --text-color: #fff;
+  --hilight-color: #0275d8;
+}
+
+.highcharts-background {
+  fill: var(--background-color);
+}
+
+.highcharts-container text {
+  fill: var(--text-color);
+}
+
+.highcharts-subtitle,
+.highcharts-credits,
+.highcharts-axis-title {
+  fill-opacity: 0.7;
+}
+
+.highcharts-grid-line {
+  stroke: var(--text-color);
+  stroke-opacity: 0.2;
+}
+
+.highcharts-tooltip-box {
+  fill: var(--background-color);
+}
+
+.highcharts-column-series rect.highcharts-point {
+  stroke: var(--background-color);
+}
+
+.color-beige {
+  color: #ffd180;
+}
+
+.color-gray-40 {
+  color: #b6b6b6;
+}
+
+.color-gray-80 {
+  color: #454545;
+}
+
+.btn-dark-gray {
+  background-color: #4f4431;
+  color: #ffd180;
+}
+
+.btn-outline {
+  color: #b6b6b6;
+  border: 1px solid #b6b6b6;
+}
+
+.btn-gray {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 5px;
+}
+
+.row-border {
+  border-bottom: 1px solid #454545;
+}
+
+.body-table > tr:last-child {
+  border: none;
+}
+
+.title {
+  margin-top: 140px;
+}
+
+/*
+	Max width before this PARTICULAR table gets nasty. This query will take effect for any screen smaller than 760px and also iPads specifically.
+	*/
+@media only screen and (max-width: 760px),
+  (min-device-width: 768px) and (max-device-width: 1024px) {
+  /* Force table to not be like tables anymore */
+  table,
+  thead,
+  tbody,
+  th,
+  td,
+  tr {
+    display: block;
+  }
+
+  /* Hide table headers (but not display: none;, for accessibility) */
+  thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+
+  tr {
+    margin: 0 0 1rem 0;
+    padding-bottom: 1rem;
+  }
+
+  td {
+    /* Behave  like a "row" */
+    border: none;
+    position: relative;
+    margin-bottom: 10px;
+    font-size: 16px;
+  }
+
+  td:before {
+    /* Now like a table header */
+    position: absolute;
+    /* Top/left values mimic padding */
+    top: 0;
+    width: 45%;
+    white-space: nowrap;
+  }
+
+  /*
+		Label the data
+    You could also use a data-* attribute and content for this. That way "bloats" the HTML, this way means you need to keep HTML and CSS in sync. Lea Verou has a clever way to handle with text-shadow.
+		*/
+  td.borrow:nth-of-type(1):before {
+    content: "ASSET";
+    color: #ffd180;
+    font-size: 11px;
+  }
+  td.borrow:nth-of-type(2):before {
+    content: "WALLET BALANCE";
+    color: #ffd180;
+    font-size: 11px;
+  }
+  td.borrow:nth-of-type(3):before {
+    color: #ffd180;
+    font-size: 11px;
+    content: "APY";
+  }
+  td.borrow:nth-of-type(4):before {
+    content: "ACTIONS";
+    color: #ffd180;
+    font-size: 11px;
+  }
+
+  td.supply:nth-of-type(1):before {
+    content: "AVAILABLE";
+    color: #ffd180;
+    font-size: 11px;
+  }
+  td.supply:nth-of-type(2):before {
+    color: #ffd180;
+    font-size: 11px;
+    content: "APY, VARIABLE	";
+  }
+  td.supply:nth-of-type(3):before {
+    color: #ffd180;
+    font-size: 11px;
+    content: "APY, STABLE";
+  }
+  td.supply:nth-of-type(4):before {
+    content: "ACTIONS";
+    color: #ffd180;
+    font-size: 11px;
+  }
+}
